@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SuperBMI</string>
+    <string name="back_button">back_button</string>
+    <string name="kg_m">kg/m</string>
+    <string name="lb_ft">lb/ft</string>
+    <string name="ft">ft</string>
+    <string name="lb">lb</string>
+    <string name="kg">kg</string>
+    <string name="m">m</string>
+    <string name="empty" />
+    <string name="youre_fat">You\'re fat!</string>
+    <string name="youre_too_slim">You are too slim!</string>
+    <string name="youre_ok">Your weight is right.</string>
+
+    <string name="title_activity_credits">Credits</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam ex, sagittis nec mi in, varius auctor sem. Nunc risus quam, aliquet ac auctor id, accumsan sit amet mi.</string>
+    <string name="dawid_nantczak">Dawid\nAntczak</string>
+    <string name="invalid_data">Invalid data!</string>
+    <string name="bmi_value_key">bmi_value_key</string>
+    <string name="mass_input_key">mass_input_key</string>
+    <string name="height_input_key">height_input_key</string>
+    <string name="switch_status_key">switch_status_key</string>
+    <string name="precision_format">%1.2f</string>
+    <string name="your_bmi_is">Your BMI is:</string>
+    <string name="calculate">Calculate</string>
+    <string name="height">height:</string>
+    <string name="mass">mass:</string>
+    <string name="credits">CREDITS</string>
+    <string name="title_activity_basic">BasicActivity</string>
+</resources>
