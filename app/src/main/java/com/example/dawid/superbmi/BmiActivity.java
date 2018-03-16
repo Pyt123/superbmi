@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.Locale;
 
@@ -17,6 +18,13 @@ public class BmiActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
+        if (getSupportActionBar() != null)
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.empty);
+        setSupportActionBar(toolbar);*/
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null)
@@ -28,20 +36,19 @@ public class BmiActivity extends AppCompatActivity
         }
     }
 
-    @Override
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.bmi_menu, menu);
+        getMenuInflater().inflate(R.id.homeAsUp, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        if(item.getItemId() == R.id.back_button)
+        if(item.getItemId() == android.R.id.home)
         {
-            Intent intent = new Intent(findViewById(R.id.back_button).getContext(), MainActivity.class);
-            startActivity(intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
