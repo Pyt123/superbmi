@@ -7,5 +7,11 @@
         android:icon="@drawable/save_icon"
         android:orderInCategory="100"
         android:title="@string/back_button"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/credits_button"
+        android:orderInCategory="200"
+        android:title="@string/credits"
+        app:showAsAction="never" />
 </menu>

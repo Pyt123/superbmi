@@ -17,7 +17,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
 {
     private Button calculateButton;
-    private Button creditsButton;
 
     private Switch unitsSwitch;
 
@@ -77,16 +76,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        creditsButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(view.getContext(), CreditsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         getSavedPreferences();
     }
 
@@ -100,15 +89,21 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        if(item.getItemId() == R.id.save_button)
+        switch (item.getItemId())
         {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString(getString(R.string.mass_input_key), massInput.getText().toString());
-            editor.putString(getString(R.string.height_input_key), heightInput.getText().toString());
-            editor.putBoolean(getString(R.string.switch_status_key), unitsSwitch.isChecked());
-            editor.apply();
-            return true;
+            case R.id.save_button:
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(getString(R.string.mass_input_key), massInput.getText().toString());
+                editor.putString(getString(R.string.height_input_key), heightInput.getText().toString());
+                editor.putBoolean(getString(R.string.switch_status_key), unitsSwitch.isChecked());
+                editor.apply();
+                return true;
+            case R.id.credits_button:
+                Intent intent = new Intent(this, CreditsActivity.class);
+                startActivity(intent);
+                return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -116,7 +111,6 @@ public class MainActivity extends AppCompatActivity
     {
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         calculateButton = findViewById(R.id.calculate_button);
-        creditsButton = findViewById(R.id.credits_button);
         unitsSwitch = findViewById(R.id.units_switch);
         massInput = findViewById(R.id.mass_input);
         heightInput = findViewById(R.id.height_input);

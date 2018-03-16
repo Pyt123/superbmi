@@ -29,4 +29,6 @@
     <string name="mass">mass:</string>
     <string name="credits">CREDITS</string>
     <string name="title_activity_basic">BasicActivity</string>
+    <string name="settings">Settings</string>
+    <string name="units">units:</string>
 </resources>
