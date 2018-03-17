@@ -16,23 +16,26 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+    private SharedPreferences sharedPreferences;
+
     private Button calculateButton;
     private Switch toEngUnitsSwitch;
     private EditText massInput;
     private EditText heightInput;
-    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getReferences();
+
+        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        getUiReferences();
 
         toEngUnitsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                setAppropriateUnits(isChecked);
+                handleUnitsChange(isChecked);
             }
         });
 
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity
         {
             case R.id.save_button:
                 saveDataToSharedPrefs();
+                Toast.makeText(getApplicationContext(), R.string.data_saved, Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.credits_button:
                 Intent intent = new Intent(this, CreditsActivity.class);
@@ -98,16 +102,15 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void getReferences()
+    private void getUiReferences()
     {
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         calculateButton = findViewById(R.id.calculate_button);
         toEngUnitsSwitch = findViewById(R.id.units_switch);
         massInput = findViewById(R.id.mass_input);
         heightInput = findViewById(R.id.height_input);
     }
 
-    private void setAppropriateUnits(boolean isEng)
+    private void handleUnitsChange(boolean isEng)
     {
         if(isEng)
         {
