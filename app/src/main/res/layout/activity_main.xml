@@ -1,109 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dawid.superbmi.MainActivity">
+    android:fillViewport="true"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/mass_text"
-        android:layout_width="52dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="start"
-        android:text="@string/mass"
-        android:textAlignment="viewStart"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/mass_input"
-        app:layout_constraintStart_toStartOf="@+id/mass_input" />
-
-    <EditText
-        android:id="@+id/mass_input"
-        android:layout_width="196dp"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
-        android:ems="10"
-        android:hint="@string/kg"
-        android:inputType="numberDecimal"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context="com.example.dawid.superbmi.MainActivity">
 
-    <TextView
-        android:id="@+id/height_text"
-        android:layout_width="52dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/height"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/height_input"
-        app:layout_constraintStart_toStartOf="@+id/height_input" />
+        <TextView
+            android:id="@+id/mass_text"
+            android:layout_width="52dp"
+            android:layout_height="18dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="start"
+            android:text="@string/mass"
+            android:textAlignment="viewStart"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/mass_input"
+            app:layout_constraintStart_toStartOf="@+id/mass_input" />
 
-    <EditText
-        android:id="@+id/height_input"
-        android:layout_width="199dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="@string/m"
-        android:inputType="numberDecimal"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mass_input" />
+        <EditText
+            android:id="@+id/mass_input"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="72dp"
+            android:ems="10"
+            android:hint="@string/kg"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/calculate_button"
-        android:layout_width="220dp"
-        android:layout_height="95dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/calculate"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/height_input"
-        app:layout_constraintVertical_bias="0.27" />
+        <TextView
+            android:id="@+id/height_text"
+            android:layout_width="52dp"
+            android:layout_height="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/height"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/height_input"
+            app:layout_constraintStart_toStartOf="@+id/height_input" />
 
-    <TextView
-        android:id="@+id/units_text"
-        android:layout_width="wrap_content"
-        android:layout_height="41dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="12dp"
-        android:gravity="bottom|center"
-        android:text="@string/units"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/units_switch"
-        android:layout_marginRight="12dp" />
+        <EditText
+            android:id="@+id/height_input"
+            android:layout_width="199dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:ems="10"
+            android:hint="@string/m"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mass_input" />
 
-    <Switch
-        android:id="@+id/units_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="bottom"
-        android:textAllCaps="false"
-        android:textOff="@string/kg_m"
-        android:textOn="@string/lb_ft"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="16dp" />
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="220dp"
+            android:layout_height="95dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/calculate"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/height_input" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/units_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="bottom|center"
+            android:text="@string/units"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/units_switch"
+            app:layout_constraintEnd_toStartOf="@+id/units_switch"
+            app:layout_constraintTop_toTopOf="@+id/units_switch"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Switch
+            android:id="@+id/units_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="36dp"
+            android:gravity="bottom"
+            android:textAllCaps="false"
+            android:textOff="@string/kg_m"
+            android:textOn="@string/lb_ft"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -1,14 +1,10 @@
 package com.example.dawid.superbmi;
 
-import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.support.v7.widget.Toolbar;
-
 import java.util.Locale;
 
 public class BmiActivity extends AppCompatActivity
@@ -18,30 +14,17 @@ public class BmiActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
-        if (getSupportActionBar() != null)
-        {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-        /*Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.empty);
-        setSupportActionBar(toolbar);*/
+
+        setBackButton();
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null)
         {
             double bmiVal = bundle.getDouble(getString(R.string.bmi_value_key));
-            TextView bmiText = findViewById(R.id.bmi_value_text);
-            bmiText.setText(String.format(Locale.ENGLISH,getString(R.string.precision_format), bmiVal));
+            showBmiValue(bmiVal);
             judgeTheUser(bmiVal);
         }
     }
-
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.id.homeAsUp, menu);
-        return true;
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -72,6 +55,20 @@ public class BmiActivity extends AppCompatActivity
         {
             bmiOpinionText.setText(R.string.youre_ok);
             background.setBackgroundColor(getResources().getColor(R.color.colorOk));
+        }
+    }
+
+    private void showBmiValue(double bmiVal)
+    {
+        TextView bmiText = findViewById(R.id.bmi_value_text);
+        bmiText.setText(String.format(Locale.ENGLISH,getString(R.string.precision_format), bmiVal));
+    }
+
+    private void setBackButton()
+    {
+        if (getSupportActionBar() != null)
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 }

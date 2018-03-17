@@ -17,12 +17,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
 {
     private Button calculateButton;
-
-    private Switch unitsSwitch;
-
+    private Switch toEngUnitsSwitch;
     private EditText massInput;
     private EditText heightInput;
-
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -32,16 +29,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         getReferences();
 
-        unitsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
+        toEngUnitsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
                 setAppropriateUnits(isChecked);
             }
         });
 
-        calculateButton.setOnClickListener(new View.OnClickListener()
-        {
+        calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -53,7 +48,7 @@ public class MainActivity extends AppCompatActivity
                     double height = Double.valueOf(heightStr);
 
                     Bmi bmi;
-                    if (unitsSwitch.isChecked())
+                    if (toEngUnitsSwitch.isChecked())
                     {
                         bmi = new BmiForEng(mass, height);
                     }
@@ -76,7 +71,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        getSavedPreferences();
+        getDataFromSharedPrefs();
     }
 
     @Override
@@ -92,11 +87,7 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.save_button:
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(getString(R.string.mass_input_key), massInput.getText().toString());
-                editor.putString(getString(R.string.height_input_key), heightInput.getText().toString());
-                editor.putBoolean(getString(R.string.switch_status_key), unitsSwitch.isChecked());
-                editor.apply();
+                saveDataToSharedPrefs();
                 return true;
             case R.id.credits_button:
                 Intent intent = new Intent(this, CreditsActivity.class);
@@ -111,7 +102,7 @@ public class MainActivity extends AppCompatActivity
     {
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         calculateButton = findViewById(R.id.calculate_button);
-        unitsSwitch = findViewById(R.id.units_switch);
+        toEngUnitsSwitch = findViewById(R.id.units_switch);
         massInput = findViewById(R.id.mass_input);
         heightInput = findViewById(R.id.height_input);
     }
@@ -134,13 +125,22 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void getSavedPreferences()
+    private void getDataFromSharedPrefs()
     {
-        boolean b = sharedPreferences.getBoolean(getString(R.string.switch_status_key), false);
-        unitsSwitch.setChecked(b);
-        String m = sharedPreferences.getString(getString(R.string.mass_input_key), getString(R.string.empty));
-        massInput.setText(m);
-        String h = sharedPreferences.getString(getString(R.string.height_input_key), getString(R.string.empty));
-        heightInput.setText(h);
+        boolean isEng = sharedPreferences.getBoolean(getString(R.string.switch_status_key), false);
+        toEngUnitsSwitch.setChecked(isEng);
+        String mass = sharedPreferences.getString(getString(R.string.mass_input_key), getString(R.string.empty));
+        massInput.setText(mass);
+        String height = sharedPreferences.getString(getString(R.string.height_input_key), getString(R.string.empty));
+        heightInput.setText(height);
+    }
+
+    private void saveDataToSharedPrefs()
+    {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(getString(R.string.mass_input_key), massInput.getText().toString());
+        editor.putString(getString(R.string.height_input_key), heightInput.getText().toString());
+        editor.putBoolean(getString(R.string.switch_status_key), toEngUnitsSwitch.isChecked());
+        editor.apply();
     }
 }

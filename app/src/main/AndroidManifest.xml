@@ -20,10 +20,6 @@
             android:name=".CreditsActivity"
             android:label="@string/title_activity_credits"
             android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".BasicActivity"
-            android:label="@string/title_activity_basic"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

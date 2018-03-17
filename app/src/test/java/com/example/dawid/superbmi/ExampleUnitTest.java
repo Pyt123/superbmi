@@ -37,8 +37,8 @@ public class ExampleUnitTest
 
         assertEquals(23.424, bmi, 0.001);
     }
-    @Test
 
+    @Test
     public void for_valid_data_bmi_eng_return_value2()
     {
         Bmi bmiCounter = new BmiForEng(200.12, 5.45);
