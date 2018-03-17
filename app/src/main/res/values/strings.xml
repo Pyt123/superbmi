@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SuperBMI</string>
-    <string name="back_button">back_button</string>
     <string name="kg_m">kg/m</string>
     <string name="lb_ft">lb/ft</string>
     <string name="ft">ft</string>
@@ -11,9 +10,7 @@
     <string name="youre_fat">You\'re fat!</string>
     <string name="youre_too_slim">You are too slim!</string>
     <string name="youre_ok">Your weight is right.</string>
-
     <string name="title_activity_credits">Credits</string>
-    <string name="dummy_button">Dummy Button</string>
     <string name="author_description">Odkąd po raz pierwszy obejrzałem "Star Wars" to do dzisiaj się zastanawiam jak to się stało, że siły zbrojne Imperium wywaliły kasę na takie MEGAGÓWNO jak maszyny kroczące.
 Zastanówcie się. Ktoś musiał totalnie wziąć w łapę za ten przetarg. Imperium musiało takowy rozpisać bo od samego początku to byli legaliści i biurokraci. Potrzebowali opancerzonej broni o dużej sile rażenia, która będzie zdolna działać na trudnym terenie, także na Hoth.
 No ale bulwa, serio? Naprawdę wygrała oferta gościa, który zaprojektował wielkie wielbłądy z działkami w ryju? Ok, dobra, powiedzmy, że takie maszyny są w stanie pokonać przeszkody bo po prostu przez nie przejdą. Ok, są opancerzone a bitwa na Hoth pokazała, że ich siła rażenia jest spora. No ale ludzie, bez przesady - jeden, podkreślam, jeden samolocik rebeliantów był w stanie zniszczyć potężną maszynę, jak mniema, za miliony kredytów. To się totalnie nie opłaca. Już pomijam kretyński system uzbrojenia - działko w ryju. Serio? Serio?! Jak Twój logistyk da dupy i wróg zajdzie cię z flanki czy nie daj Boże od tyłu to jesteś totalnie martwy. Nie wiem kto jest większych debilem, ten kto to zaprojektował czy ten kto klepnął to i postanowił włączyć do arsenału Imperium. Przecież to jest oczywisty szwindel, którego jedynym celem było zdefraudowanie państwowej kasy. Zresztą nie pierwsze ale nie chcę tu przywoływać wyświechtanego przykładu z wentylacją Gwiazdy Śmierci. Miliardy, bulwa, miliardy kredytów gunganowi w dupę.
@@ -32,8 +29,7 @@ Smutne to i straszne.</string>
     <string name="height">height:</string>
     <string name="mass">mass:</string>
     <string name="credits">CREDITS</string>
-    <string name="title_activity_basic">BasicActivity</string>
-    <string name="settings">Settings</string>
     <string name="units">units:</string>
     <string name="data_saved">Data saved!</string>
+    <string name="save_data">Save data</string>
 </resources>

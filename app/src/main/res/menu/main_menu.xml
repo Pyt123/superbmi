@@ -6,7 +6,7 @@
         android:id="@+id/save_button"
         android:icon="@drawable/save_icon"
         android:orderInCategory="100"
-        android:title="@string/back_button"
+        android:title="@string/save_data"
         app:showAsAction="ifRoom" />
 
     <item
