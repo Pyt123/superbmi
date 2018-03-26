@@ -52,7 +52,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/dawid_nantczak"
+            android:text="@string/author_name_surname"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold"

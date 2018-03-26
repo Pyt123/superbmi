@@ -7,19 +7,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import java.util.Locale;
 
-public class BmiActivity extends AppCompatActivity
-{
+public class BmiActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
 
         setBackButton();
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null)
-        {
+        if(bundle != null) {
             double bmiVal = bundle.getDouble(getString(R.string.bmi_value_key));
             showBmiValue(bmiVal);
             judgeTheUser(bmiVal);
@@ -27,47 +24,40 @@ public class BmiActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if(item.getItemId() == android.R.id.home)
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void judgeTheUser(double bmiValue)
-    {
+    private void judgeTheUser(double bmiValue) {
         TextView bmiOpinionText = findViewById(R.id.opinion_text);
         ConstraintLayout background = findViewById(R.id.bmi_layout);
-        if(bmiValue > 25)
-        {
-            bmiOpinionText.setText(R.string.youre_fat);
-            background.setBackgroundColor(getResources().getColor(R.color.colorFat));
-        }
-        else if(bmiValue < 18)
-        {
-            bmiOpinionText.setText(R.string.youre_too_slim);
-            background.setBackgroundColor(getResources().getColor(R.color.colorSlim));
-        }
-        else
-        {
-            bmiOpinionText.setText(R.string.youre_ok);
-            background.setBackgroundColor(getResources().getColor(R.color.colorOk));
+        Bmi.BodyType bodyType = Bmi.getBodyType(bmiValue);
+        switch (bodyType) {
+            case OK:
+                bmiOpinionText.setText(R.string.ok_state);
+                background.setBackgroundColor(getResources().getColor(R.color.colorOk));
+                break;
+            case TOO_FAT:
+                bmiOpinionText.setText(R.string.fat_state);
+                background.setBackgroundColor(getResources().getColor(R.color.colorFat));
+                break;
+            case TOO_SLIM:
+                bmiOpinionText.setText(R.string.slim_state);
+                background.setBackgroundColor(getResources().getColor(R.color.colorSlim));
         }
     }
 
-    private void showBmiValue(double bmiVal)
-    {
+    private void showBmiValue(double bmiVal) {
         TextView bmiText = findViewById(R.id.bmi_value_text);
-        bmiText.setText(String.format(Locale.ENGLISH,getString(R.string.precision_format), bmiVal));
+        bmiText.setText(String.format(Locale.ENGLISH,getString(R.string.bmi_precision_format), bmiVal));
     }
 
-    private void setBackButton()
-    {
-        if (getSupportActionBar() != null)
-        {
+    private void setBackButton() {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
