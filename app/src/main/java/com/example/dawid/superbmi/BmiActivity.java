@@ -1,13 +1,18 @@
 package com.example.dawid.superbmi;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class BmiActivity extends AppCompatActivity {
+    private static final String BMI_VALUE_KEY = "bmi_value_key";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +22,7 @@ public class BmiActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            double bmiVal = bundle.getDouble(getString(R.string.bmi_value_key));
+            double bmiVal = bundle.getDouble(BMI_VALUE_KEY);
             showBmiValue(bmiVal);
             judgeTheUser(bmiVal);
         }
@@ -60,5 +65,11 @@ public class BmiActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
+    
+    public static void start(Context context, double bmiValue) {
+        Intent starter = new Intent(context, BmiActivity.class);
+        starter.putExtra(BMI_VALUE_KEY, bmiValue);
+        context.startActivity(starter);
     }
 }

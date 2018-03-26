@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 try {
                     double result = calculateBmiFromInput();
-                    showCalculatedValue(result);
+                    BmiActivity.start(getApplicationContext(), result);
                 } catch (IllegalArgumentException e) {
                     Toast.makeText(getApplicationContext(), R.string.invalid_data, Toast.LENGTH_LONG).show();
                     return;
@@ -124,11 +124,5 @@ public class MainActivity extends AppCompatActivity {
             bmi = new BmiForKgM(mass, height);
         }
         return bmi.calculateBmi();
-    }
-
-    private void showCalculatedValue(double result) {
-        Intent intent = new Intent(this, BmiActivity.class);
-        intent.putExtra(getString(R.string.bmi_value_key), result);
-        startActivity(intent);
     }
 }
