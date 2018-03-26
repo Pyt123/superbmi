@@ -105,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     double result = calculateBmiFromInput();
                     showCalculatedValue(result);
-                } catch (IllegalArgumentException e)
-                {
+                } catch (IllegalArgumentException e) {
                     Toast.makeText(getApplicationContext(), R.string.invalid_data, Toast.LENGTH_LONG).show();
                     return;
                 }
