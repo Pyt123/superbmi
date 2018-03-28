@@ -22,8 +22,7 @@ public class CreditsActivity extends AppCompatActivity {
     private View mControlsView;
     private boolean mVisible;
 
-    private final Runnable mHidePart2Runnable = new Runnable()
-    {
+    private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
         public void run() {
